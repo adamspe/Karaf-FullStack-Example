@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb"
+            xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+            xmlns:ci="http://jaxb.dev.java.net/plugin/code-injector"
+            xsi:schemaLocation="
+http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+version="2.1"
+extensionBindingPrefixes="ci">
+  <globalBindings>
+    <serializable uid="1" /> <!-- want to implement Serializable -->
+    <xjc:simple /><!-- want @XmlRootElement for base elements. requires -extension on xjc  -->
+  </globalBindings>
+  <bindings schemaLocation="fse.xsd" node="/xsd:schema/xsd:simpleType[@name='Status']">
+    <typesafeEnumClass ref="com.notio.example.fse.Status" />
+  </bindings>
+</bindings>

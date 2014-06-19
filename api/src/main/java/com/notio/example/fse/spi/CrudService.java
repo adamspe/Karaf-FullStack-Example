@@ -23,6 +23,8 @@
  ******************************************************************************/
 package com.notio.example.fse.spi;
 
+import java.util.List;
+
 import com.notio.example.fse.FseEntity;
 import com.notio.example.fse.FseException;
 import com.notio.example.fse.NoSuchObjectException;
@@ -64,4 +66,11 @@ public interface CrudService<T extends FseEntity> {
      * @throws NoSuchObjectException If no object with the id exists.
      */
     void delete(T t) throws FseException,NoSuchObjectException;
+    /**
+     * List all entities of a given type (note in a real application would be unlikely to scale).
+     *
+     * @return The list of entities.
+     * @throws FseException
+     */
+    List<T> list() throws FseException;
 }
